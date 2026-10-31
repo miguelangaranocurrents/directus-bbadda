@@ -44,3 +44,9 @@
 		fill: var(--tooltip-background-color);
 	}
 }
+
+// The tooltip content is force-mounted, so its positioning wrapper stays in the DOM (with the tooltip's z-index)
+// even while closed. Let pointer events pass through it to the elements underneath.
+[data-reka-popper-content-wrapper]:has(> .tooltip) {
+	pointer-events: none;
+}
